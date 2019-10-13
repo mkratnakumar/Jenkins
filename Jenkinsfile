@@ -14,7 +14,7 @@ pipeline{
         stage("Maven Build"){
             steps{
                 sh "mvn clean package"
-                sh "mv taget/*.war target/myweb.war"
+                sh "mv target/*.war target/myweb.war"
             }
         }
         stage("deploy-dev"){
@@ -25,10 +25,7 @@ pipeline{
                    ssh ec2-user@172.31.3.230 /opt/tomcat8/bin/startup.sh
                    """
             }
-            }
-        }
-                
-    
+         }
     }
-   
+                
 }
